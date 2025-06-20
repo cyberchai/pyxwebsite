@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<!-- SMITH COLLEGE PUBLIC PHOTO GUIDELINES: https://www.smith.edu/your-campus/offices-services/college-relations/campus-photography -->
+
+<BaseLayout title="About | Pyx Boxing" description="Pyx Boxing About Page">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="Behind the Gloves"
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/atwork.jpg"
+					alt="Pyx Boxing founders at Joy Challenge 2024"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Our Mission</h2>
+				<div class="content">
+					<p>
+						Founded in 2023 in Northampton, Massachusetts by a team of Smith College students, 
+						Pyx Boxing exists to challenge sexist design, champion equity through women’s sports gear, and spark joy, both in and beyond the ring.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Our Promise</h2>
+				<div class="content">
+					<p>We’re committed to reshaping the fight, from the gear we wear to the spaces we train in.
+Every stitch, design, and decision we make is about inclusion, performance, and building a future where womens' presence is never sidelined.</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title">Our Team</h2>
+				<div class="content">
+					<ul>
+						<li><strong>Chaira Harder</strong> — Co-founder</li>
+						<li><strong>Sirohi Kumar</strong> — Co-founder</li>
+						<li><strong>Lala Rukh</strong> — Business pitch development</li>
+						<li><strong>Sarah Mian</strong> — Business pitch development & early website design</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title">Other Contributors</h2>
+				<div class="content">
+					<ul>
+						<li><strong>Charlotte Meuse</strong> — Visual identity & branding</li>
+						<li><strong>Lauren Burke</strong> — Brand consulting</li>
+					</ul>
+				</div>
+			</section>
+
+
+			<section> <!-- TODO: EDIT THE ALIGNMENT AND DIMS FOR THIS PHOTO -->
+				<div class="content">
+					<img
+						width="1553"
+						height="873"
+						src="/assets/smithpano.jpg"
+						alt="Smith College public stock image landscape"
+					/>
+				</div>
+			</section>
+
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>

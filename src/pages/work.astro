@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Hero from '../components/Hero.astro';
+import Grid from '../components/Grid.astro';
+
+const projects = (await getCollection('work')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+---
+
+<BaseLayout
+	title="Gear Up | Our Store | Pyx Boxing"
+	description="Discover our products"
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Gear Up"
+				align="start"
+			/>
+
+			<!--
+			<Grid variant="offset">
+				{
+					projects.map((project) => (
+						<li>
+							<PortfolioPreview project={project} />
+						</li>
+					))
+				}
+			</Grid>
+			-->
+
+			<h5>We are currently in the process of raising capital for our research and development.</h5>
+
+			<h5>Our upcoming product line includes:</h5>
+				<ul>
+				<li>Boxing gloves</li>
+				<li>Striking pads</li>
+				<li>Hand wraps</li>
+				<li>Heavy bags</li>
+				<li>Clothing attire</li>
+				</ul>
+
+			<h5></br>Here's a sneak-peak into our design...</h5>
+
+				<section> <!-- TODO: CLEAN UP CODE, CSS DESIGN FOR CONSISTENCY LATER-->
+					<div class="content">
+						<img
+							src="/assets/PyxClassic.png"
+							alt="Pyx Boxing founders at Joy Challenge 2024"
+							style="max-width: 85%; border-radius: 1.25rem; box-shadow: var(--shadow-md);"
+						/>
+					</div>
+				</section>
+
+
+
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>

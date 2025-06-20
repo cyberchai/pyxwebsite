@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<BaseLayout title="Workouts | Pyx Boxing" description="Pyx Boxing Workouts Page">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="Workout Plans"
+			>
+			</Hero>
+
+			<section>
+        <h2 class="section-title"><Icon icon="boxing-glove" size="1.2em"/> Challenge of the Day</h2>
+        <div class="content">
+            <h5>
+                Today’s Pyx Pick: <strong>The Knockout Burn</strong>
+            </h5>
+            </br>
+            <ul>
+                <li>20 Punches (speed!)</li>
+                <li>10 Squat jumps</li>
+                <li>10 Push-ups</li>
+                <li>20 Mountain climbers</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title"><Icon icon="arrows-open" size="1.2em"/> Want a Full Plan?</h2>
+        <div class="content">
+             <h5>
+                Looking for more?
+            </h5>
+
+            </br>
+
+            <p>
+                We love <a href="https://darebee.com/workout/types/combat.html" target="_blank">Darebee’s Combat Workouts</a> for free, bodyweight-only routines that help build endurance, confidence, and boxing skill.
+            </p>
+        </div>
+    </section>
+
+
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>

@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<BaseLayout title="Invest | Pyx Boxing" description="Support the future of women's boxing.">
+	<div class="stack gap-20">
+		<main class="wrapper invest">
+			<Hero title="Invest in Pyx" align="start">
+				<p>Help us redefine the fight from the ground up. Your investment fuels inclusive gear, bold design, and a stronger future for women’s boxing.</p>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Why Invest?</h2>
+				<div class="content">
+					<p>Beyond a brand, Pyx is a movement. We’re building boxing equipment that actually fits, works, and empowers women and nonbinary athletes. With your support, we can bring equitable gear into gyms and global markets alike.</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title">What Your Support Enables</h2>
+				<div class="content">
+					<ul>
+						<li><strong>R&D:</strong> Prototyping gloves, wraps, and pads designed for smaller hands and more diverse anatomies.</li>
+						<li><strong>Community:</strong> Partnering with gyms, athletes, and schools to build access and visibility.</li>
+						<li><strong>Production:</strong> Ethical manufacturing with sustainable materials and partnerships that invest in women and community-owned businesses.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title">How to Get Involved</h2>
+				<div class="content">
+					<p>If you're interested in supporting us financially or strategically, we'd love to hear from you. Please reach out directly to us by email <a href="mailto:scpyxboxing@gmail.com">scpyxboxing@gmail.com</a>.</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.invest {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content ul {
+		padding-left: 1.25rem;
+		list-style: disc;
+	}
+
+	.content li {
+		margin-bottom: 0.5rem;
+	}
+
+	.content a {
+		color: var(--accent-regular);
+		text-decoration: underline;
+	}
+
+	@media (min-width: 50em) {
+		.invest {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.invest > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
